@@ -1,0 +1,172 @@
+---
+title: "Technical Guidelines Series - Part 2"
+author: "Joy Kumagai"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Prepared by Joy Kumagai - Technical Support Unit of Knowledge and Data**  
+**Reviewed by Aidin Niamir - Head of the Technical Support Unit of Knowledge and Data**
+  
+17 Nov 2020
+
+## **2. Preparing and mapping data to IPBES Regions and Sub-regions** 
+
+The guide will show how to aggregate and map FAO data according to the IPBES Regions and Sub-Regions polygons using R. For this exercise, we chose the FAO population data but any FAOSTAT dataset can be used. 
+
+Begin by loading the following packages. 
+
+```{r message = FALSE, warning = FALSE}
+library(sf) 
+library(tidyverse)
+library(FAOSTAT)
+library(httr) # to download shapefiles off of Zenodo
+```
+
+### I. Downloading Necessary Data  
+
+#### a. Downloading FAO data
+
+The first step is to download and unzip the FAO data. The function GET() from the httr package can be used to retrieve the FAO data from a url. The url can be found in FAO STAT's data description file [here.](http://fenixservices.fao.org/faostat/static/bulkdownloads/datasets_E.xml)
+```{r collapse=TRUE, message='hide'}
+GET("http://fenixservices.fao.org/faostat/static/bulkdownloads/Population_E_All_Data_(Normalized).zip", 
+    write_disk("FAO_population.zip", overwrite = T)) # Status 200 indicates a successful download
+
+unzip("FAO_population.zip") # unzips the data
+```
+#### b. Downloading IPBES regions and subregions   
+
+Now we will download the shapefile of the IPBES Regions and Sub-regions off of Zenodo. This can be accomplished manually or through a few lines of code. 
+
+To download the shapefile manually, please go to the [IPBES Regions and Sub-Regions Zenodo entry](https://doi.org/10.5281/zenodo.3923633).
+
+To do this through a script, first identify the record ID of the Zenodo entry, which is the numbers following "*zenodo.*" at the end of the DOI. We then create a URL with the record ID and query the API for information about the record.  
+
+```{r collapse=TRUE, message='hide'}
+recordID <- "3923633"
+url_record <- paste0("https://zenodo.org/api/records/", recordID)
+record <- GET(url_record)
+record # Status 200 indicates a successful download
+```
+
+Now, we can inspect the contents downloaded with the function content()
+```{r}
+View(content(record)) # view displays the output in a human readable form within R Studio
+```
+
+![Above shows the resulting R Studio window which displays what was downloaded in a human readable form](C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/Mapping_Regions/view_content_zendodo_record.png)
+
+This information we received contains metadata for the record, and within this we can find the specific URL to download the Ipbes regions and sub-regions shapefile. We then use this URL and the function GET() to download the shapefile.
+```{r collapse=TRUE, message='hide'}
+# Contains the url to download the shapefile
+url_shape <- content(record)$files[[5]]$links$download 
+
+GET(url_shape, write_disk("ipbes_regions_subregions.zip", overwrite = T)) # Downloads shapefile
+unzip("ipbes_regions_subregions.zip") # unzips shapefile
+```
+
+### II. Uploading data into R Studio 
+Now that our data is on our computer, we need to upload the data into R studio and project the spatial data.
+
+```{r}
+pop_raw <- read.csv("Population_E_All_Data_(Normalized).csv") # population data
+shape <- st_read("IPBES_Regions_Subregions2.shp") # shapefile
+```
+
+We chose to project the data into the Robinson projection as it minimizes distortions in both area and distance. To find the proj4 notation please visit [this link](https://epsg.io/54030).  
+
+```{r}
+crs_robin <-  "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"
+shape <- st_transform(shape, crs_robin)
+```
+
+### III. Cleaning the data
+The next important step is to clean the data to ensure it can be joined and mapped easily. For this example, we will filter to only include data for the Total Population for each country in 2018.    
+```{r}
+pop_2018 <- pop_raw %>% 
+  filter(Element == "Total Population - Both sexes" &
+           Year == 2018) %>% 
+  select(Area.Code, # these columns are selected from the original data
+         Area,
+         Element,
+         Year,
+         Unit,
+         Value)
+```
+
+By examining the Area names within the dataset, one will notice that every name after Zimbabwe refers to aggregated data, therefore we will remove these from our analysis.
+```{r}
+tail(pop_2018$Area, 34)
+
+pop_2018 <- pop_2018[1:237, ] # Selects the first 237 records, thus removing the last 34 
+```
+Finally, we need to add the ISO3 codes onto the dataframe, so we can easily join it to the IPEBS Regions and Sub-Regions data. The translateCountryCode() function provided by the FAOSTAT package allows us to easily do this. 
+
+```{r collapse=TRUE}
+pop_2018 <- translateCountryCode(data = pop_2018, from = "FAOST_CODE", to = "ISO3_CODE", "Area.Code") # Add's the ISO Code to the data
+```
+
+There are two records where no ISO3 Code was assigned, China (including mainland, Hong Kong SAR, Macao SAR, and Taiwan) and South Sudan. "China mainland" refers to the same area as "China" in our dataset, so we are safe to exclude the China (including mainland, Hong Kong SAR, Macao SAR, and Taiwan) from our analysis.
+
+For South Sudan, we will add the same ISO-3 Code we have in the IPBES Regions and Sub-regions dataset. 
+```{r}
+pop_2018[230,2] <- "SSD" # South Sudan
+pop_2018 <- na.omit(pop_2018) # removes china (including other areas)
+```
+
+
+### IV: Joining and Aggregating 
+We have all of our data downloaded locally, uploaded into R, and formatted properly, now the last step is to join and aggregate the data to the IPBES regions and Sub-regions shapefile.
+
+The first step is to join the IPBES regions and sub-regions attributes to our data table. I drop the spatial attributes of the IPBES Regions and Sub-regions dataset to speed up the process. 
+```{r}
+colnames(shape)[2] <- "ISO3_CODE" 
+regions <- shape %>%   
+  as.data.frame() %>% # drops the spatial attributes
+  select(ISO3_CODE, Region, Sub_Region)  # filters the columns
+
+pop_2018 <- left_join(x = pop_2018, y = regions, by = "ISO3_CODE") %>% # Joins data
+  drop_na()
+```
+
+The second step is to aggregate the data per IPBES regions and sub-regions. In our example, I calculate the toal population per region and per sub-region using the group_by() function within the tidyverse package. 
+```{r}
+pop_2018 <- pop_2018 %>% 
+  group_by(Region) %>% # Grouping by regions
+  mutate(region_pop = sum(Value)/1000) %>% # calculates total population (millions) per region
+  ungroup() %>% 
+  group_by(Sub_Region) %>% # Grouping by sub-region 
+  mutate(sub_region_pop = sum(Value)/1000) %>% # calculates total population (millions) per sub-region
+  ungroup() 
+pop_2018
+```
+
+The last step is to join the formatted FAO data to the spatial data we originally had so we can create maps. 
+```{r}
+data <- full_join(x = shape, y = pop_2018, by = "ISO3_CODE")
+```
+
+
+### V. Mapping 
+
+Now, all that is left to do is to map the data per region and sub-region. 
+```{r}
+data$region_pop <- as.character(round(data$region_pop)) # Treats the values as groups so the legend displays correctly 
+
+# Plotting by regions
+palette <- c("lightskyblue","dodgerblue", "dodgerblue4", "lightblue1") # colors
+plot(data[,14], pal = palette, main = "Total population (millions) in 2018 per region")
+```
+
+And now by subregions. 
+```{r}
+plot(data[,15], main = "Total population (millions) in 2018 per sub-region")
+```
+
+Finally, by country.
+```{r}
+plot(data[,11], main = "Total population (thousands) in 2018")
+```
