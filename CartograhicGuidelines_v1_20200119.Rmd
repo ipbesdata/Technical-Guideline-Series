@@ -1,0 +1,168 @@
+---
+title: Technical Guideline Series
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE}
+htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/CartographicGuidelines/logo2.jpg"), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:10px; width: 600px; height: 135px;') 
+```
+
+
+## Part 3 - Cartographic Elements  
+**Prepared by Joy Kumagai - Technical Support Unit (TSU) of Knowledge and Data**  
+**Reviewed by Aidin Niamir - Head of the Technical Support Unit of Knowledge and Data**  
+
+Version: 1.0  
+Last Updated: January 19th 2021 
+
+
+This technical guideline will review the necessary and suggested cartographic elements for maps produced as part of IPBES assessments. The guide is split into three components, cartographic elements, disclaimers, and general suggestions and have examples of maps and the code behind them throughout.
+
+Begin by loading the following packages.
+
+```{r  message = FALSE, warning=FALSE}
+library(tidyverse)
+library(sf) 
+library(rnaturalearth)
+library(graticule)
+```
+
+### I. Cartographic Elements and considerations for IPBES assessments:
+#### *A. Cartographic Elements*
+
+
+Generally the following cartographic elements should be included within each map: 
+
+* Map with frame
+
+* Legend as a separate file
+
+* Graticules (North arrow and scale are not needed when graticules are included)
+
+* References for each of the layers used to make the map are required within each data deposit package associated with the map
+
+* Antarctica (in global maps) 
+
+
+Generally these elements do not need to be included with each map for assessments:
+
+* North arrow and scale bar - do not need to be included when graticules are present 
+
+* Titles - should not be included within the map’s frame, but rather included in the caption. 
+
+
+
+For an example the following code downloads land and ocean polygons from rnaturalearth package, creates latitude and longitude labels and graticules, and then plots a global map in robinson projection. 
+```{r message = FALSE,  warning=FALSE}
+robin <- CRS("+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs")
+
+# Land polygons from rnaturalearth pckage
+world <- ne_download(scale = 10, type = 'land', category = 'physical', returnclass = "sf") # sf mulitpologyon 
+world_robin <- st_transform(world, crs = robin) # changes the projection
+
+# ocean from rnaturalearth package
+ocean <- ne_download(scale = 10, type = 'ocean', category = 'physical', returnclass = "sf")
+ocean <- st_transform(ocean, crs = robin) # changes the projection
+ocean <- ocean[,1]
+```
+
+
+```{r  message = FALSE,  warning=FALSE}
+# Creates latitude and longitude labels and graticules
+lat <- c(-90, -60, -30, 0, 30, 60, 90)
+long <- c(-180, -120, -60, 0, 60, 120, 180)
+labs <- graticule_labels(lons = long, lats = lat, xline = -180, yline = 90, proj = robin) # labels for the graticules 
+lines <- graticule(lons = long, lats = lat, proj = robin) # graticules 
+
+# Global Map 
+par(mar = c(0,3,0,2)) # Adjusts the edges of the frame 
+plot(lines, lty = 5, col = "lightgrey") # plots graticules 
+plot(ocean, col = alpha("lightskyblue", 0.3), add = TRUE) # plots ocean polygons
+plot(world_robin[,1], col = "lightgrey", add = TRUE) # plots Land boundarys
+text(subset(labs, labs$islon), lab = parse(text = labs$lab[labs$islon]), pos = 3, xpd = NA) # plots longitude labels
+text(subset(labs, !labs$islon), lab = parse(text = labs$lab[!labs$islon]), pos = 2, xpd = NA) # plots latitude labels
+box(which = "plot", lty = "solid") # Map frame 
+
+# To add a north arrow 
+# addnortharrow(pos = "topright", padin = c(0.15, 0.5), scale = .7,
+#   lwd = 1, border = "black", cols = c("white", "black"),
+#   text.col = "black")
+```
+
+We can also use the ggplot package to map in R Studio such as in the following example:
+```{r warning=FALSE}
+library(ggspatial) # for north arrow and scale bar
+ggplot() + 
+  geom_sf(data = world, color = "black", fill = "lightgrey") + # plots the land polygons
+  coord_sf(xlim = c(-117.5, -86.5), ylim = c(14.5, 33.0)) + # sets the maps extent
+  theme(panel.grid.major = element_line(color = gray(.5), # sets latitude and longitude lines 
+                                        linetype = "dashed", size = 0.5),
+        panel.background = element_rect(fill = "lightblue1"), # sets background panel color 
+        panel.border = element_rect(colour = "black", fill=NA, size=0.5)) + # sets panel border 
+   annotation_north_arrow(location = "bl", which_north = "true", # sets north arrow 
+                          style = north_arrow_minimal,
+        pad_x = unit(-0.1, "in"), pad_y = unit(0.45, "in")) +
+  annotation_scale(location = "bl") # sets scale bar
+
+```
+
+
+#### *B. Projections*
+
+IPBES has adopted the Robinson projection for all global scale maps. 
+
+The Robinson projection balances distortions in area, direction, distance, and distorations near the poles. We encourage the use of Pacific centered maps when focused on marine or Pacific themes. 
+
+For maps of countries or regions, national or appropriate regional projections are recommended. If there is no specific country projection available, the relevant Universal Transverse Mercator zone projection is suggested.
+
+#### *C. Color Considerations*
+
+Color is a critical key to communicating information to viewers within a map. Often incorrect color schemes are used that either make it difficult for people to understand the map or bias the interpretation. 
+
+When creating a map, please choose color schemes that are color blindness friendly and are not rainbow colored. A very useful tool to visualize colors as someone with different types of color blindness is available [here](https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40).  
+ 
+To display no data we recommend using the color grey (BBBBBB; RGB:187, 187, 187). 
+
+Rainbow color schemes are interpreted by humans to have sharp artificial boundaries that are not representative of the underlying data. [Crameri et al. 2020](https://doi.org/10.1038/s41467-020-19160-7) covers in more detail the current problems involving the use of color in science communication. An example of this is presented in the figure below (Figure 2) taken from [this article](https://personal.sron.nl/~pault/#good_amd_bad_colour_schemes_compared) where geoid height is displayed using a sunset scheme and then a traditional rainbow scheme. Large jumps in the data are interpreted within the lines of light blue and yellow that are not inherent within the data. 
+
+![Figure 2: Map illustrating the differences of interpretation of data displayed with a sunset palette scheme and the traditional rainbow palette.](color_comparison_figure.png)
+
+
+[This article](https://personal.sron.nl/~pault/) by Paul Tol provides extensive color palettes to choose from that are color blind friendly and for qualitative, diverging, and sequential data. The high contrast color scheme is particularly useful as it has been optimized for high contrast that will appear well in a monochromatic printout.
+
+
+### II. Disclaimers:
+
+The standard disclaimers that should appear on all maps within IPBES assessments are the following: 
+
+Short form
+
+*The boundaries and names shown, and the designations used on this map do not imply official endorsement or acceptance by the United Nations.*
+ 
+Long form
+
+*The designations employed and the presentation of material on this map do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.*
+
+
+For more information on how to display disputed or contentious boundary lines and territories, please contact the TSU on knowledge and data (tsu.data@ipbes.net)  
+
+If a map needs to be approved by the United Nations WESR unit, which has the responsibility of review and production of maps, please first contact the TSU on knowledge and data for their procedure. 
+Suggestions:
+
+### III. Suggestions:
+
+In light of current standards and to facilitate the standardization of maps within IPBES assessments, we recommend the following: 
+
+* Avoid Country Borders, if needed Country borders are black, continuous, and 0.2 in size
+
+* No data is symbolized with the color grey (BBBBBB) 
+
+* White or light sky blue is used for the ocean 
+
+* Do not add excessive labels which interfere with interpretation of the map as a whole
