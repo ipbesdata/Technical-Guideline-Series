@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r, echo=FALSE}
-htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/CartographicGuidelines/logo2.jpg"), 
+htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/CartographicGuidelines/logo2.png"), 
                alt = 'logo', 
                style = 'position:absolute; top:0; right:0; padding:10px; width: 600px; height: 135px;') 
 ```
@@ -21,7 +21,7 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 
 
 Version: 1.0  
-Last Updated: January 22nd 2021   
+Last Updated: January 25th 2021   
 
 This technical guideline will review the necessary and suggested cartographic elements for maps produced as part of IPBES assessments. The guide is split into three components, cartographic elements, disclaimers, and general suggestions and have examples of maps and the code behind them throughout.
 
