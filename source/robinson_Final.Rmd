@@ -1,0 +1,83 @@
+---
+title: |
+  **Technical Guidelines Series - Part 1**  
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Prepared by Joy Kumagai - Technical Support Unit of Knowledge and Data**  
+**Reviewed by Aidin Niamir - Head of the Technical Support Unit of Knowledge and Data**  
+9 July 2020  
+
+## **1. Conversion to the Robinson Projection** 
+
+The guide will show how to convert raster and vector data from a projection to the Robinson projection using R. Please note that whether one would like to display a Pacific centered or Greenwich centered map depends on the application.  
+
+Begin by loading the following packages. 
+```{r message = FALSE}
+library(raster)
+library(graticule)
+library(rgdal)
+library(rworldmap)
+```
+
+Next, we define the Robinson projection using PROJ.4 notation. This information can be found at the [this link](https://epsg.io/54030).  
+
+```{r}
+crs_robin <- CRS("+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs") 
+```
+
+### 1.1 Raster Data 
+To produce a Greenwich centered map in the Robinson projection with raster data, we generate a random raster and plot the result, but please load and use the raster data that you will be working with. The crs() function will output the projection that your data is in.
+```{r }
+r <- raster(nrows=180, ncols=360, xmn=-180, xmx=180,ymn=-90, ymx=90,res = 1) # This is the raster
+r <- setValues(r,runif(ncell(r))) # Fill the raster with random values 
+crs(r) <- "+proj=longlat +datum=WGS84 +no_defs" # Define the original projection of the raster (WGS 1984)
+crs(r)
+plot(r) # Plot the raster 
+```
+
+Now we will convert this raster to the Robinson projection and plot the result with longitude and latitude lines. 
+```{r, warning = FALSE}
+r <- projectRaster(r, crs=crs_robin, over = TRUE) # project to Robinson
+
+par(oma=c(4,0,0,0)) # adjusts the width of the frame
+plot(r,axes = F,legend=F) #Plot the raster
+
+lat <- c(-90, -60, -30, 0, 30, 60, 90)
+lon <- c(-180, -120, -60, 0, 60, 120, 180)
+llgridlines(as(r, "SpatialPoints"), easts = lon, norths = lat,cex=0.5) # Add graticules to map 
+```
+  
+### 1.2 Vector Data 
+In this section, we will produce a world map of countries with vector data (points, lines, polygons). 
+First, we will load, check the projection, and plot a world map of countries.     
+```{r}
+worldmap <- getMap(resolution = "coarse") # Load world map - countries 
+crs(worldmap)
+plot(worldmap) # Plot world map 
+```
+  
+Now, we project the vector data into the Robinson projection and plot the map. 
+```{r, warning = FALSE}
+worldmap<-spTransform(worldmap,crs_robin) # Project to Robinson 
+
+plot(worldmap) # Plot world map (vector)
+
+lat <- c(-90, -60, -30, 0, 30, 60, 90)
+lon <- c(-180, -120, -60, 0, 60, 120, 180)
+llgridlines(as(r, "SpatialPoints"), easts = lon, norths = lat,cex=0.5) # Add graticules 
+```
+  
+### 1.3 Combine Vector and Raster
+Finally, we will visualize both the raster and vector data together in one map. 
+```{r, warning = FALSE}
+## Vector & Raster
+par(oma=c(4,0,0,0)) # adjusts the width of the frame
+plot(r,axes = F,legend=F) # Plot the raster
+plot(worldmap,add=T) # Plot the vector data 
+llgridlines(as(r, "SpatialPoints"), easts = lon, norths = lat,cex=0.5)
+```
