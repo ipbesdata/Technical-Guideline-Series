@@ -21,7 +21,7 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 
 
 Version: 1.0  
-Last Updated: January 26th 2021   
+Last Updated: February 1st 2021   
 
 This technical guideline will review the necessary and suggested cartographic elements for maps produced as part of IPBES assessments. The guide is split into three components, cartographic elements, disclaimers, and general suggestions and have examples of maps and the code behind them throughout.
 
@@ -128,8 +128,13 @@ For maps of countries or regions, national or appropriate regional projections a
 Color is a critical key to communicating information to viewers within a map. Colors need to be used consistently in maps and figures. Often incorrect or inconsistent color schemes are used that either make it difficult for people to understand the map or bias the interpretation. 
 
 When creating a map, please choose color schemes that are color blindness friendly and are not rainbow colored. A very useful tool to visualize colors as someone with different types of color blindness is available [here](https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40).  
- 
-To display no data we recommend using the color grey (BBBBBB; RGB:187, 187, 187). 
+  
+The code below showcases some of the available options for color blind friendly palettes through the RColorBrewer package.  
+```{r}
+RColorBrewer::display.brewer.all(colorblindFriendly = T)
+```
+   
+Additionally, to display no data we recommend using the color grey (BBBBBB; RGB:187, 187, 187). 
 
 Rainbow color schemes are interpreted by humans to have sharp artificial boundaries that are not representative of the underlying data. [Crameri et al. 2020](https://doi.org/10.1038/s41467-020-19160-7) covers in more detail the current problems involving the use of color in science communication. An example of this is presented in the figure below (Figure 2) taken from [this article](https://personal.sron.nl/~pault/#good_amd_bad_colour_schemes_compared) where geoid height is displayed using a sunset scheme and then a traditional rainbow scheme. Large jumps in the data are interpreted within the lines of light blue and yellow that are not inherent within the data. 
 
@@ -145,21 +150,20 @@ The standard disclaimers that should appear on all maps within IPBES assessments
 
 Short form
 
-*The boundaries and names shown, and the designations used on this map do not imply official endorsement or acceptance by the United Nations.*
+*The boundaries and names shown, and the designations used on the maps shown here do not imply official endorsement or acceptance by IPBES.*
  
 Long form
 
-*The designations employed and the presentation of material on this map do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.*
-
-
+*The designations employed and the presentation of material on the maps shown here do not imply the expression of any opinion whatsoever on the part of the IPBES concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.* 
+  
 For more information on how to display disputed or contentious boundary lines and territories, please contact the TSU on knowledge and data (tsu.data@ipbes.net)  
-
+  
 If a map needs to be approved by the United Nations WESR unit, which has the responsibility of review and production of maps, please first contact the TSU on knowledge and data for their procedure. 
-
+  
 ### III. Suggestions:
-
-In light of current standards and to facilitate the standardization of maps within IPBES assessments, we recommend the following: 
-
+  
+Streamlining the design of maps allows for better comparison and integration. Therefore, to facilitate the standardization of maps within IPBES, we recommend the following: 
+  
 * Avoid country borders, if needed country borders are black, continuous, and 0.2 in size
 
 * Include all continents in global maps, including Antarctica
@@ -173,3 +177,11 @@ In light of current standards and to facilitate the standardization of maps with
 * White or light sky blue (87CEFA; RGB: 135, 206, 250) is used for the ocean 
 
 * Do not add excessive labels which interfere with interpretation of the map as a whole
+  
+Here we also include some popular resources for global scale spatial data:
+
+* Administrative borders: [https://gadm.org/data.html](https://gadm.org/data.html)
+
+* Coast lines, land, and ocean boundaries: [https://www.naturalearthdata.com/downloads/](https://www.naturalearthdata.com/downloads/)
+
+Your feedback on this content is welcome. Let us know what other useful material would you like to see here by emailing tsu.data@ipbes.net 
