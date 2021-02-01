@@ -9,3 +9,6 @@ Currently, there are three guidlines avaliable.
 3. [Cartographic Elements](https://jkumagai96.github.io/Technical-Guideline-Series/cartograhic_guidelines_v1.html)  
   
 If you have any questions, feedback, or suggestions for future guidelines, please contact tsu.data@ipbes.net     
+
+Please note:
+*The designations employed and the presentation of material on the maps shown here do not imply the expression of any opinion whatsoever on the part of the IPBES concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.* 
