@@ -14,6 +14,7 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 ```
 
 
+
 ## Part 3 - Cartographic Elements  
 **Prepared by Joy Kumagai - Technical Support Unit (TSU) of Knowledge and Data**  
 **Reviewed by Aidin Niamir - Head of the Technical Support Unit of Knowledge and Data**    
@@ -181,6 +182,8 @@ Streamlining the design of maps allows for better comparison and integration. Th
 Here we also include some popular resources for global scale spatial data:
 
 * Administrative borders: [https://gadm.org/data.html](https://gadm.org/data.html)
+
+* Marine regions: [https://www.marineregions.org/downloads.php](https://www.marineregions.org/downloads.php) 
 
 * Coast lines, land, and ocean boundaries: [https://www.naturalearthdata.com/downloads/](https://www.naturalearthdata.com/downloads/)
 
