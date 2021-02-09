@@ -20,7 +20,7 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 *For any inquires please contact tsu.data@ipbes.net*    
 
 Version: 2.0  
-Last Updated: Feburary 1st 2021   
+Last Updated: February 9th 2021   
 
 The guide will show how to convert raster and vector data from a projection to the Robinson projection using R. IPBES has adopted the Robinson projection for visualizing global scale maps as it balances distortions in area, direction, distance, and distorations near the poles.  Please note that the projection used for analysis and whether one would like to display a Pacific centered or Greenwich centered map depends on the application. For example, If calculating area, an equal-area projection is needed. 
 
@@ -100,6 +100,8 @@ text(subset(labs, labs$islon), lab = parse(text = labs$lab[labs$islon]), pos = 3
 text(subset(labs, !labs$islon), lab = parse(text = labs$lab[!labs$islon]), pos = 2, xpd = NA) # plots latitude labels
 ```
   
+If there are polygons that cross the date line, it is possible that some erroneous polygons may appear. If this occurs, the solution is to run the function st_wrap_dateline() before projecting. 
+
 ### III. Combine Vector and Raster
 Finally, we will visualize both the raster and vector data together in one map. 
 ```{r}
