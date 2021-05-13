@@ -15,12 +15,14 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 
 ## Part 4 - Guidelines for Colour
 **Prepared by Joy Kumagai - Technical Support Unit (TSU) of Knowledge and Data**  
+**Reviewed by Aidin Niamir - Head of the Technical Support Unit of Knowledge and Data**
+
 *For any inquires please contact tsu.data@ipbes.net*  
 
 Version: 1.0  
 Last Updated: April 26th 2021
 
-DOI:    
+DOI: 10.5281/zenodo.4756596     
 
 This technical guidelines focuses on recommendations for the use of colour in maps and can be applied to other visualisations. We present some base considerations for colour paired with links to useful resources for further exploration.
 
