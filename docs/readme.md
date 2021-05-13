@@ -1,6 +1,6 @@
 ## Read Me    
 
-These technical guidelines have been prepared by the technical support unit on knowledge and data and reviewed by the task force on knowledge and data within IPBES.   
+These technical guidelines have been prepared by the technical support unit on knowledge and data and reviewed by the geoinformatics subgroup of the task force on knowledge and data within IPBES.   
 All approved guidlines are avaliable at [https://ict.ipbes.net/geoinformation](https://ict.ipbes.net/geoinformation)   
 
 Currently, there are three guidlines avaliable.   
