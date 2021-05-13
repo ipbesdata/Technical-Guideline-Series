@@ -20,7 +20,7 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 *For any inquires please contact tsu.data@ipbes.net*  
 
 Version: 1.0  
-Last Updated: April 26th 2021
+Last Updated: May 13th 2021
 
 DOI: 10.5281/zenodo.4756596     
 
