@@ -15,6 +15,8 @@ Sub-regions](https://jkumagai96.github.io/Technical-Guideline-Series/mapping_reg
 Elements](https://jkumagai96.github.io/Technical-Guideline-Series/cartograhic_guidelines_v1.html)  
 4. [Guidelines for
 Colour](https://jkumagai96.github.io/Technical-Guideline-Series/guidelines-for-color.html)
+5. [File
+Formats](https://jkumagai96.github.io/Technical-Guideline-Series/FileFormats.html)
 
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
