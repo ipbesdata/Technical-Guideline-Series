@@ -17,7 +17,7 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
                 style = 'position:absolute; top:0; right:0; padding:10px; width: 400px; height: 100px;') 
 ```
 
-## Part 7 - How to cite IPBES assessment reports
+## Part 7 - How to Cite IPBES Assessment Reports
 
 **Prepared by Joy Kumagai - Technical Support Unit of Knowledge and Data**   
   
@@ -28,7 +28,7 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 Version: 1.0    
 Last Updated: January 26th 2021
 
-DOI: 10.5281/zenodo.5783348
+DOI: [10.5281/zenodo.5783348](https://doi.org/10.5281/zenodo.5783348)
 
 This technical guideline is a resource for everyone to cite previous IPBES assessments starting with the IPBES Global Assessment. BibTeX and RIS files are available to download beneath each citation. Assessments approved at each future Plenary session will be added to the list. Suggested citations are created by the assessments. 
 
