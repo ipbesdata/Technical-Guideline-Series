@@ -17,8 +17,9 @@ Elements](https://jkumagai96.github.io/Technical-Guideline-Series/cartograhic_gu
 Colour](https://jkumagai96.github.io/Technical-Guideline-Series/guidelines-for-color.html)  
 5. [File
 Formats](https://jkumagai96.github.io/Technical-Guideline-Series/FileFormats.html)  
-6. [How to Upload to and Download from Zenodo](https://jkumagai96.github.io/Technical-Guideline-Series/How-to-upload-and-download-from-Zenodo.html)
-
+6. [How to Upload to and Download from Zenodo](https://jkumagai96.github.io/Technical-Guideline-Series/How-to-upload-and-download-from-Zenodo.html)  
+7. [Suggested Citations](https://jkumagai96.github.io/Technical-Guideline-Series/suggested_citations.html)  
+  
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
 
