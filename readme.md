@@ -23,8 +23,8 @@ Formats](https://jkumagai96.github.io/Technical-Guideline-Series/FileFormats.htm
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
 
-Please note: *The designations employed and the presentation of material
-on the maps shown here do not imply the expression of any opinion
-whatsoever on the part of the IPBES concerning the legal status of any
-country, territory, city or area or of its authorities, or concerning
-the delimitation of its frontiers or boundaries.*
+Please note: *The designations employed and the presentation of material on the maps used in the assessment do not 
+imply the expression of any opinion whatsoever on the part of IPBES concerning the legal status of any country, 
+territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries. 
+These maps have been prepared or used for the sole purpose of facilitating the assessment of the 
+broad biogeographical areas represented therein and for purposes of representing scientific data spatially.*
