@@ -108,6 +108,15 @@ DOI: https://doi.org/10.5281/zenodo.6452037
 Download the [BibTeX file here](https://gist.github.com/jkumagai96/d1cfa5e044f30fa47a50633d847c6cdd/archive/5f73aa8deb0c208d0f7b4a8f4b92d1b4d84a1c72.zip). 
 Download the [RIS file here](https://gist.github.com/jkumagai96/b0516ef1a04db65c23089b2165de4cb7/archive/817a215aa6cdad5fa4017d70e52e1123a1310fc4.zip).
 
+#### Glossary
+**Annex I: Glossary of the IPBES Sustainable Use Assessment**
+DOI: https://doi.org/10.5281/zenodo.6452090
+
+> IPBES (2022): Glossary of the thematic assessment of the sustainable use of wild species of the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services. J.-M. Fromentin, M.R. Emery, J. Donaldson, M.-C. Danner, A. Hallosserie, D. Kieling, G. Balachander, E. Barron, R.P. Chaudhary, M. Gasalla, M. Halmy, C. Hicks, M.S. Park, B. Parlee, J. Rice, T. Ticktin, and D. Tittensor (eds.). IPBES secretariat, Bonn, Germany. XX pages. https://doi.org/10.5281/zenodo.6452090
+
+Download the [BibTeX file here](https://gist.github.com/jkumagai96/44c8c222719b16fcebef5777338f55f2/archive/8374d882bfaba1cb1b1cdd5ea437e6e3bd515fb3.zip). 
+Download the [RIS file here](https://gist.github.com/jkumagai96/8168532977569a56e7f3db67b5b29ddb/archive/f92282101a1df388226c02096dbc983fc0e32a99.zip). 
+
 ### II. Values Assessment
 #### Overall Assessment  
 **Methodological assessment of the diverse values and valuation of nature of the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services**   
