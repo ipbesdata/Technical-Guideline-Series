@@ -27,8 +27,8 @@ knitr::opts_chunk$set(echo = TRUE)
   
 *For any inquires please contact [tsu.data\@ipbes.net](mailto:tsu.data@ipbes.net){.email}*  
   
-Version: 2.0    
-Last Updated: May 27th 2022
+Version: 2.1    
+Last Updated: June 22nd 2022
 
 DOI: https://doi.org/10.5281/zenodo.6586825 
 
