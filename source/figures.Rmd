@@ -11,14 +11,12 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{=html}
-<script>
-   $(document).ready(function() {
-     $head = $('#header');
-     $head.prepend('<img src=\"logo2.png\" style=\"float: right;width: 300px;\"/>')
-   });
-</script>
+```{r, echo=FALSE}
+htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/Figures/logo2.png"), 
+               alt = 'logo', 
+                style = 'position:absolute; top:0; right:0; padding:10px; width: 400px; height: 100px;') 
 ```
+  
 ## Part 8 - Guidelines for the delivery of schematic, data driven, borrowed, and adapted figures
 
 **Prepared by Joy Kumagai - IPBES Technical Support Unit (TSU) of Knowledge and Data**  
