@@ -19,6 +19,7 @@ Colour](https://jkumagai96.github.io/Technical-Guideline-Series/guidelines-for-c
 Formats](https://jkumagai96.github.io/Technical-Guideline-Series/FileFormats.html)  
 6. [How to Upload to and Download from Zenodo](https://jkumagai96.github.io/Technical-Guideline-Series/How-to-upload-and-download-from-Zenodo.html)  
 7. [How to Cite IPBES Assessment Reports](https://jkumagai96.github.io/Technical-Guideline-Series/suggested_citations.html)  
+8. [Guidelines for the delivery of schematic, data driven, borrowed, and adapted figures](https://jkumagai96.github.io/Technical-Guideline-Series/figures.html)
   
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
