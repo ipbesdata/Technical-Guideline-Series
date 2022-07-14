@@ -1,36 +1,36 @@
 ---
 title: "Technical Guideline Series"
-output: 
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
     toc_depth: 4
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-
-<script>
-   $(document).ready(function() {
-     $head = $('#header');
-     $head.prepend('<img src=\"figures/logo2.png\" style=\"float: right;width: 300px;\"/>')
-   });
-</script>
+```{r, echo=FALSE}
+htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/Suggested_citations/figures/logo2.png"), 
+               alt = 'logo', 
+                style = 'position:absolute; top:0; right:0; padding:10px; width: 400px; height: 100px;') 
+```
 
 ## Part 7 - How to Cite IPBES Assessment Reports
 
-**Prepared by Joy Kumagai - Technical Support Unit of Knowledge and Data**   
+**Prepared by Aidin Niamir and Joy Kumagai - Technical Support Unit of Knowledge and Data**   
   
-**Reviewed by Aidin Niamir - Head of the Technical Support Unit (TSU) of Knowledge and Data**  
+**Reviewed by the Technical Support Units of the Values and Sustainable Use Assessments**  
   
 *For any inquires please contact [tsu.data\@ipbes.net](mailto:tsu.data@ipbes.net){.email}*  
   
-Version: 2.1    
-Last Updated: June 22nd 2022
+Version: 2.2    
+Last Updated: July 14th 2022
 
-DOI: https://doi.org/10.5281/zenodo.6586825 
+DOI: https://doi.org/10.5281/zenodo.6683968
 
 This technical guideline is a resource for everyone to cite previous IPBES assessments starting with the IPBES Global Assessment. BibTeX and RIS files are available to download beneath each citation. Assessments approved at each future Plenary session will be added to the list. Suggested citations are created by the assessments. 
 
