@@ -18,8 +18,7 @@ Formats](https://jkumagai96.github.io/Technical-Guideline-Series/FileFormats)
 Zenodo](https://jkumagai96.github.io/Technical-Guideline-Series/How-to-upload-and-download-from-Zenodo)  
 7. [How to Cite IPBES Assessment
 Reports](https://jkumagai96.github.io/Technical-Guideline-Series/suggested_citations)  
-8. [Guidelines for the delivery of schematic, data driven, borrowed, and
-adapted
+8. [Guidelines for the delivery of 
 figures](https://jkumagai96.github.io/Technical-Guideline-Series/figures)  
 9. [Considerations when working with Indigenous and local knowledge](https://jkumagai96.github.io/Technical-Guideline-Series/ILK_considerations)
 
