@@ -9,7 +9,7 @@ Projection](https://jkumagai96.github.io/Technical-Guideline-Series/robinson_pro
 2. [Preparing and mapping data to IPBES Regions and
 Sub-regions](https://jkumagai96.github.io/Technical-Guideline-Series/mapping_regions_v2)  
 3. [Cartographic
-Elements](https://jkumagai96.github.io/Technical-Guideline-Series/cartograhic_guidelines_v1)   
+Elements](https://jkumagai96.github.io/Technical-Guideline-Series/cartograhic_guidelines_v2)   
 4. [Guidelines for
 Colour](https://jkumagai96.github.io/Technical-Guideline-Series/guidelines-for-color)  
 5. [File
