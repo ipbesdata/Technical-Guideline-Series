@@ -1,0 +1,3 @@
+PDF for Part 2 of the technical guideline series named, "Preparing and mapping data to IPBES Regions and Sub-regions" is too large to upload to GitHub.
+
+You can find the PDF in the zenodo repository here: https://doi.org/10.5281/zenodo.6840450 
