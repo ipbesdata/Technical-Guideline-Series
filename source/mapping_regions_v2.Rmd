@@ -1,6 +1,8 @@
 ---
 title: "Technical Guideline Series"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -21,8 +23,10 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 **Reviewed by Aidin Niamir - Head of the Technical Support Unit of Knowledge and Data**  
 *For any inquires please contact tsu.data@ipbes.net*  
 
-Version: 2.1  
-Last Updated: Feburary 1st 2021  
+Version: 2.2  
+Last Updated: 15 July 2022
+
+DOI: [10.5281/zenodo.6840450](https://doi.org/10.5281/zenodo.6840450)
   
 The guide will show how to aggregate and map FAO data according to the IPBES Regions and Sub-Regions polygons using R. For this exercise, we chose the FAO population data but any FAOSTAT dataset can be used.
 
@@ -68,7 +72,7 @@ Now, we can inspect the contents downloaded with the function content()
 View(content(record)) # view displays the output in a human readable form within R Studio
 ```
 
-![The picture above shows the resulting R Studio window which displays what was downloaded in a human readable form.](C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/MappingRegions/view_content_zendodo_record.png)
+![The picture above shows the resulting R Studio window which displays what was downloaded in a human readable form.](C:/Users/jkumagai/Documents/IPBES/R/Geoinformatics/Technical Guidelines Series/Mapping Guidelines v2/view_content_zendodo_record.png)
   
 This information we received contains metadata for the record, and within this we can find the specific URL to download the IPBES regions and sub-regions shapefile. We then use this URL and the function GET() to download the shapefile.  
 ```{r collapse=TRUE, message='hide'}
