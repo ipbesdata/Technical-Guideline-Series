@@ -1,7 +1,5 @@
 ---
 title: "Technical Guideline Series"
-author: "Joy A. Kumagai"
-date: "9/15/2021"
 output: 
   html_document:
     toc: true
@@ -29,16 +27,16 @@ and Data**
 Unit of Knowledge and Data**
 
 *For any inquires please contact
-[tsu.data\@ipbes.net](mailto:tsu.data@ipbes.net){.email}*
+[tsu.data\@ipbes.net](mailto:tsu.data@ipbes.net)*
 
-Version: 1.0 
-Last Updated: September 15th 2021
+Version: 1.1   
+Last Updated: 15 July 2022
 
-DOI: 10.5281/zenodo.5509740 
+DOI: [10.5281/zenodo.6839037](https://doi.org/10.5281/zenodo.6839037) 
 
 ## I. Executive Summary
 
-This technical guideline focuses on recommended file formats for IPBES with open or mostly open standards. To summarize briefly:
+This technical guideline is for all IPBES experts and focuses on recommended file formats for IPBES with open or mostly open standards. To summarize briefly:
   
 ```{r echo=FALSE}
 recommendations <- data.frame("Data Type" = c("Geospatial Vector Data", 
