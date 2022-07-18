@@ -1,13 +1,13 @@
 ---
 title: "Technical Guideline Series"
 output:
-  word_document:
-    toc: yes
-    toc_depth: '4'
   html_document:
     toc: yes
     toc_float: yes
     toc_depth: 4
+  word_document:
+    toc: yes
+    toc_depth: '4'
 ---
 
 ```{r setup, include=FALSE}
@@ -30,7 +30,7 @@ colorize <- function(x, color) {
 }
 ```
 
-## Part 10 - Contributing authors template email considering ILK and the data and knowledge management policy
+## Part 10 - Contributing authors template email
 
 **Prepared by Joy Kumagai and Peter Bates**   
 **Reviewed by Aidin Niamir, the Task Force on Knowledge and Data and the Task Force on Indigenous and Local Knowledge**
@@ -44,7 +44,7 @@ DOI: [10.5281/zenodo.6655926](https://doi.org/10.5281/zenodo.6655926)
 
 This technical guideline is a template invitation email for contributing authors to IPBES assessments, which covers aspects relating to ILK and the data and knowledge management policy. The guideline is intended for assessment technical support units. 
 
-### Template Email
+### Contributing Authors Template Email considering ILK and the data and knowledge management policy
 
 *This formal email could be sent after initial more informal contact is made, as appropriate.*
 
