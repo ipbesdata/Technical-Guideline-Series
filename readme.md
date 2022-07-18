@@ -20,7 +20,8 @@ Zenodo](https://jkumagai96.github.io/Technical-Guideline-Series/How-to-upload-an
 Reports](https://jkumagai96.github.io/Technical-Guideline-Series/suggested_citations)  
 8. [Guidelines for the delivery of 
 figures](https://jkumagai96.github.io/Technical-Guideline-Series/figures)  
-9. [Considerations when working with Indigenous and local knowledge](https://jkumagai96.github.io/Technical-Guideline-Series/ILK_considerations)
+9. [Considerations when working with Indigenous and local knowledge](https://jkumagai96.github.io/Technical-Guideline-Series/ILK_considerations)  
+10. [Contributing Authors Template](https://jkumagai96.github.io/Technical-Guideline-Series/Contributing-authors-template)
 
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
