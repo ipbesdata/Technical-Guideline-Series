@@ -1,8 +1,10 @@
 ---
 title: "Technical Guideline Series"
 output:
-  html_document: default
-  pdf_document: default
+  html_document:
+    toc: yes
+    toc_float: yes
+    toc_depth: 4
 ---
 
 ```{r setup, include=FALSE}
@@ -23,10 +25,10 @@ htmltools::img(src = knitr::image_uri("C:/Users/jkumagai/Documents/IPBES/R/Geoin
 **Reviewed by Aidin Niamir - Head of the Technical Support Unit of Knowledge and Data**  
 *For any inquires please contact tsu.data@ipbes.net*  
 
-Version: 2.2  
-Last Updated: 15 July 2022
+Version: 2.3  
+Last Updated: 15 August 2022
 
-DOI: [10.5281/zenodo.6840450](https://doi.org/10.5281/zenodo.6840450)
+DOI: [10.5281/zenodo.6992546](https://doi.org/10.5281/zenodo.6992546)
   
 The guide will show how to aggregate and map FAO data according to the IPBES Regions and Sub-Regions polygons using R. For this exercise, we chose the FAO population data but any FAOSTAT dataset can be used.
 
@@ -226,9 +228,4 @@ We can also plot by subregion.
 plot(data_subregion[,2], main = "Total population (millions) in 2018 per sub-region", breaks = "quantile")
 ```
    
-Finally, by country. 
-```{r}
-plot(data[,11], main = "Total population (thousands) in 2018", breaks = "jenks", at = c(100000,500000, 1000000, 1427648))
-```
-  
 Your feedback on this content is welcome. Let us know what other useful material would you like to see here by emailing tsu.data@ipbes.net  
