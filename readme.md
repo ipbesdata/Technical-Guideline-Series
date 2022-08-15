@@ -24,7 +24,8 @@ Reports](https://jkumagai96.github.io/Technical-Guideline-Series/suggested_citat
 8. [Guidelines for the delivery of
 figures](https://jkumagai96.github.io/Technical-Guideline-Series/figures)  
 9. [Considerations when working with Indigenous and local
-knowledge](https://ict.ipbes.net/data-management/technical-guidelines/ILK-considerations)
+knowledge](https://jkumagai96.github.io/Technical-Guideline-Series/ILK_considerations)
+10. [Contributing authors template email](https://jkumagai96.github.io/Technical-Guideline-Series/Contributing-authors-template)
 
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
