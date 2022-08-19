@@ -26,7 +26,7 @@ Figures](https://jkumagai96.github.io/Technical-Guideline-Series/figures)
 9. [Considerations when Working with Indigenous and Local
 Knowledge](https://jkumagai96.github.io/Technical-Guideline-Series/ILK_considerations)  
 10. [Contributing Authors Template Email](https://jkumagai96.github.io/Technical-Guideline-Series/Contributing-authors-template)  
-11. [Documenting An Indicator](https://jkumagai96.github.io/Technical-Guideline-Series/Documenting_an_indicator)  
+11. [Documenting an Indicator](https://jkumagai96.github.io/Technical-Guideline-Series/Documenting_an_indicator)  
 
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
