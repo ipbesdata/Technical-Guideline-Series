@@ -26,7 +26,10 @@ Figures](https://jkumagai96.github.io/Technical-Guideline-Series/figures)
 9. [Considerations when Working with Indigenous and Local
 Knowledge](https://jkumagai96.github.io/Technical-Guideline-Series/ILK_considerations)  
 10. [Contributing Authors Template Email](https://jkumagai96.github.io/Technical-Guideline-Series/Contributing-authors-template)  
-11. [Documenting an Indicator](https://jkumagai96.github.io/Technical-Guideline-Series/Documenting_an_indicator)  
+11. [Documenting an Indicator](https://jkumagai96.github.io/Technical-Guideline-Series/Documenting_an_indicator)
+12A. [File naming](https://ict.ipbes.net/ipbes-ict-guide/data-management/technical-guidelines/part-12a-file-naming)
+12B. [Versioning scheme](https://ict.ipbes.net/ipbes-ict-guide/data-management/technical-guidelines/part-12b-versioning-scheme)
+12C. [Experts list](https://ict.ipbes.net/ipbes-ict-guide/data-management/technical-guidelines/part-12c-experts-list)
 
 If you have any questions, feedback, or suggestions for future
 guidelines, please contact <tsu.data@ipbes.net>
