@@ -32,7 +32,7 @@ Knowledge](https://jkumagai96.github.io/Technical-Guideline-Series/ILK_considera
 12C. [Experts list](https://ict.ipbes.net/ipbes-ict-guide/data-management/technical-guidelines/part-12c-experts-list)
 
 If you have any questions, feedback, or suggestions for future
-guidelines, please contact <tsu.data@ipbes.net>
+guidelines, please contact <aidin.niamir@senckenberg.de>
 
 Please note: *The designations employed and the presentation of material
 on the maps shown here do not imply the expression of any opinion
